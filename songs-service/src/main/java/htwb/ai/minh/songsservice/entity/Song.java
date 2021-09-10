@@ -18,7 +18,7 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+//    @NotNull
     @Column(name = "id")
     private Integer id;
 
@@ -33,4 +33,5 @@ public class Song {
 
     @Column(name = "released")
     private Integer released;
+
 }

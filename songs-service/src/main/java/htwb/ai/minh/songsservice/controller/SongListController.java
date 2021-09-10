@@ -87,7 +87,7 @@ public class SongListController {
         try {
             claims = jwtDecoder.checkToken(token);
         } catch (ExpiredJwtException | MalformedJwtException | SignatureException | IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Unauthorized.", HttpStatus.UNAUTHORIZED);
         }
 
         if (songlist.getSongList().isEmpty()) {
@@ -151,6 +151,7 @@ public class SongListController {
                 return new ResponseEntity<>("Song: " + song.getTitle() + " with ID: " + song.getId() + " not found.", HttpStatus.BAD_REQUEST);
             }
         }
+        songlist.setOwner(claims.getId());
         songListService.updateSongList(songlist);
         return new ResponseEntity<>("SongList updated.", HttpStatus.NO_CONTENT);
     }

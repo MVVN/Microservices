@@ -37,4 +37,8 @@ public class SongService {
     public void deleteSong(Integer id) {
         songRepository.deleteById(id);
     }
+
+    public Optional<Song> getSongByTitle(String songTitle) {
+        return songRepository.findByTitle(songTitle);
+    }
 }

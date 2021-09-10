@@ -56,6 +56,23 @@ public class SongController {
         }
     }
 
+/*    @GetMapping(path = "byTitle/{songTitle}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<Song> getSongByTitle(@RequestHeader("Authorization") String token,
+                                               @PathVariable(value = "songTitle") String songTitle) {
+        if (!jwtDecoder.isTokenValid(token)) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        if (songTitle.isBlank()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        Optional<Song> song = songService.getSongByTitle(songTitle);
+        if (song.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(song.get(), HttpStatus.OK);
+        }
+    }*/
+
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> postSong(@RequestHeader("Authorization") String token,
                                            @RequestBody Song song) throws URISyntaxException {

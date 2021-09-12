@@ -29,4 +29,12 @@ public class LyricService {
     public Lyric postLyric(Lyric lyric) {
         return lyricsRepository.save(lyric);
     }
+
+    public void updateLyric(Lyric lyric) {
+        lyricsRepository.save(lyric);
+    }
+
+    public void deleteLyric(String lyricId) {
+        lyricsRepository.deleteById(lyricId);
+    }
 }
